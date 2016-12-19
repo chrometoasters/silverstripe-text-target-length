@@ -34,6 +34,7 @@ class TextTargetLengthExtension extends Extension
 		$field->setAttribute('data-target-ideal-length', $idealCharCount);
 		$field->setAttribute('data-target-min-length', $minCharCount);
 		$field->setAttribute('data-target-max-length', $maxCharCount);
+        Requirements::add_i18n_javascript(TEXTTARGETLENGTH_DIR.'/javascript/lang');
         Requirements::javascript(FRAMEWORK_DIR.'/thirdparty/jquery/jquery.js');
         Requirements::javascript(FRAMEWORK_DIR.'/thirdparty/jquery-entwine/dist/jquery.entwine-dist.js');
         Requirements::javascript(TEXTTARGETLENGTH_DIR.'/javascript/text-target-length.js');

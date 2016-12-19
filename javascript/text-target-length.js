@@ -13,20 +13,20 @@
 				var min = field.data('targetMinLength');
 				var max = field.data('targetMaxLength');
 				var targetFulfilled = Math.round((charCount / ideal)*20)*5; //5% increments
-				var remark = 'Great!';
+				var remark = ss.i18n._t('TextTargetLength.Great');
 				var remarkClass = 'good';
                 if ((charCount >= min && charCount < ((min + ideal) / 2)) || (charCount <= max && charCount > ((max + ideal) / 2))) {
-                    remark = 'Okay';
+                    remark = ss.i18n._t('TextTargetLength.OK');
 				} else if (charCount < min) {
-    				remark = 'Keep going!';
+    				remark = ss.i18n._t('TextTargetLength.KeepGoing');
                     remarkClass = 'under';
                     if (charCount === 0) remark = '';
 				} else if (charCount > max) {
-    				remark = 'Too long'
+    				remark = ss.i18n._t('TextTargetLength.TooLong');
                     remarkClass = 'over';
 				}
 				countEl.attr('class', remarkClass + ' target-length-count');
-				countEl.html('Length target: <b>' + targetFulfilled + '%</b> <i>' + remark + '</i>');
+				countEl.html(ss.i18n.sprintf(ss.i18n._t('TextTargetLength.LengthTarget'), targetFulfilled, remark));
 				field.data('previousCount', charCount);
 			},
 			getText: function() {
